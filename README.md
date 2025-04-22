@@ -100,7 +100,7 @@ parameter combination is saved in the directory ``best_models``
 ``augm_type``, ``augm_probability``, ``prompt_dir``, ``mask_path``, ``train_dir``, ``val_dir``, ``test_dir``, 
 ``evaluation_type``
 
-4. Evaluate pre-trained Model
+4. **Evaluate pre-trained Model**
 
 ```bash
 python -m app.scripts.evaluate_trained_model
