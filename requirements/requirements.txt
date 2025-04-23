@@ -1,0 +1,7 @@
+torch==2.5.1
+torchvision==0.16.1
+numpy==1.26.3
+pydantic==2.9.2
+diffusers==0.31.0
+transformers==4.46.0
+replicate==1.0.4
