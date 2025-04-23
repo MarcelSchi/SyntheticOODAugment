@@ -26,7 +26,7 @@ pip install -r requirements.txt
 
 # Configuration
 
-All scripts read from a configuration file (e.g: ``config/config_training.json``). You can adapt existing config files or
+All scripts read from a configuration file (e.g: ``config/config_training1.json``). You can adapt existing config files or
 create a new JSON file, depending on your use-case:
 ```bash
 {
@@ -41,8 +41,8 @@ create a new JSON file, depending on your use-case:
     "augm_type": "base",  # or: autoaugment, albumentations, SD_XL, Kandinsky, Flux_Fill_Pro
     "augm_probability": 0,  # increase for more images to be augmented
     "evaluation_type": "f1",  # or: accuracy
-    "prompt_dir": "app/preprocessing/prompts_training.json",
-    "mask_path": "app/data/mask_images/mask_image1.png",
+    "prompt_dir": "app/preprocessing/prompts/prompts_training1.json",
+    "mask_path": "app/data/mask_images/mask_1.jpg",
     "train_dir": "app/data/training_dataset",
     "val_dir": "app/data/validation_dataset",
     "test_dir": "app/data/test_dataset"
@@ -54,9 +54,9 @@ create a new JSON file, depending on your use-case:
 
 1. **Standard Training & Evaluation**
 ```bash
-python -m app.scripts.main
+python -m app.scripts.run_training_evaluation_pipeline
 ```
-The main script will:
+The ``run_training_evaluation_pipeline`` script will:
 1. Load a training, validation and testing dataset
 2. Apply base (validation & test) or augmentation (training, if augmentation on) transformations
 3. Load pre-trained EfficientNetB0 (```num_classes=5``` to classify)
@@ -87,9 +87,9 @@ augmented.
 python -m app.scripts.run_grid_search
 ```
 
-This function uses a specified grid of parameter values and uses these arguments to run the main scrip over several 
+This function uses a specified grid of parameter values and uses these arguments to run the ``run_training_evaluation_pipeline`` script over several 
 repeats. Following functionality is included: 
-- ```repeats``` defines the setting, how often each parameter combination is used to run the ``main.py`` script. The 
+- ```repeats``` defines the setting, how often each parameter combination is used to run the ``run_training_evaluation_pipeline.py`` script. The 
 average score is more meaningful for a large number of runs, however computational complexity increases respectively.
 - Each score within the repeats is saved in ``app/results/experiment_results.json``
 - All models are saved within the directory ``temp_models`` while the respective best performing model within a
