@@ -82,6 +82,14 @@ augmented.
 #### Configurable Parameters: 
 ``mean``, ``std``, ``augm_type``,``augm_probability``, ``prompt_dir``, ``mask_path``, ``test_dir``
 
+
+#### Possible Augmentation types: 
+``autoaugment``, ``albumentations``, ``instructpix2pix``, ``SD_XL``, ``Kandinsky``, ``Flux_Fill_Pro``
+
+In order to run Flux-Fill-Pro as Diffusion Model, a replicate paying method has to be set up. Next, the API Key of 
+Replicate has to be set as environment variable. The pro version costs 0.05$ per image.
+
+
 3. **Hyperparameter Grid Search**
 ```bash
 python -m app.scripts.run_grid_search
@@ -99,12 +107,6 @@ parameter combination is saved in the directory ``best_models``
 ``mean``, ``std``, ``input_size``, ``learning_rate``, ``batch_size``, ``number_epochs``, ``grayscale``, ``save_images``, 
 ``augm_type``, ``augm_probability``, ``prompt_dir``, ``mask_path``, ``train_dir``, ``val_dir``, ``test_dir``, 
 ``evaluation_type``
-
-#### Possible Augmentation types: 
-``autoaugment``, ``albumentations``, ``instructpix2pix``, ``SD_XL``, ``Kandinsky``, ``Flux_Fill_Pro``
-
-In order to run Flux-Fill-Pro as Diffusion Model, a replicate paying method has to be set up. Next, the API Key of 
-Replicate has to be set as environment variable. The pro version costs 0.05$ per image.
 
 
 4. **Evaluate pre-trained Model**
