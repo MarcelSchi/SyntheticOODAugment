@@ -100,6 +100,13 @@ parameter combination is saved in the directory ``best_models``
 ``augm_type``, ``augm_probability``, ``prompt_dir``, ``mask_path``, ``train_dir``, ``val_dir``, ``test_dir``, 
 ``evaluation_type``
 
+#### Possible Augmentation types: 
+``autoaugment``, ``albumentations``, ``instructpix2pix``, ``SD_XL``, ``Kandinsky``, ``Flux_Fill_Pro``
+
+In order to run Flux-Fill-Pro as Diffusion Model, a replicate paying method has to be set up. Next, the API Key of 
+Replicate has to be set as environment variable. The pro version costs 0.05$ per image.
+
+
 4. **Evaluate pre-trained Model**
 
 ```bash
