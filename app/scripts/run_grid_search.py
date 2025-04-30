@@ -25,11 +25,11 @@ if __name__ == "__main__":
     conf_path = pathlib.Path(__file__).parent.parent / "configuration/config_training.json"
     param_grid = {
         "augm_probability": [0],
-        "number_epochs": [2],
-        "learning_rate": [0.001],
-        "batch_size": [32, 64],
+        "number_epochs": [10],
+        "learning_rate": [0.001, 0.0005],
+        "batch_size": [32],
     }
 
     output_file = pathlib.Path(__file__).parent.parent.parent / "results/experiment_results.json"
 
-    run_experiment_with_grid(conf_path, param_grid, repeats=2, output_file=str(output_file))
+    run_experiment_with_grid(conf_path, param_grid, repeats=3, output_file=str(output_file))
