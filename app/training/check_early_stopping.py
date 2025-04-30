@@ -6,10 +6,12 @@ class ModelEvaluator:
         self.best_score = 0
 
     def check_for_early_stopping(self, score):
-        if score >= self.best_score + self.min_improvement:
+        # check if the validation loss is smaller than the previously smallest loss + a discrepancy
+        # --> Smallest loss value is saved for reference
+        if score <= self.best_score - self.min_improvement:
             self.best_score = score
             self.counter = 0
-
+        # increase counter to detect overfitting.
         else:
             self.counter += 1
             if self.counter >= self.tolerance:
