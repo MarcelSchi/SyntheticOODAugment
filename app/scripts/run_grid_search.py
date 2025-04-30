@@ -5,6 +5,17 @@ from app.optimization.generate_parameter_combinations import generate_parameter_
 
 
 def run_experiment_with_grid(conf_path, param_grid, repeats=5, output_file="results/experiment_results.json"):
+    """
+    Grid search function which includes: generation of parameter combinations, calculation of scores for all 
+    combinations and saving the results in a .json file.
+    Args:
+        config path (str): Configuration file which gets overwritten;
+        param_grid: a list of all parameters that should be tested;
+        repeats (int): number of repeats for each parameter combination to get a meaningful average score;
+        output_file (str): directory where to save results.
+    Returns:
+        A list of results for all parameter combinations.
+    """
     results = {}
     parameter_combinations = generate_parameter_combinations(param_grid)
 
