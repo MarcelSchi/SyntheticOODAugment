@@ -4,7 +4,7 @@ from app.training.load_config import ConfigLoader
 from app.preprocessing.get_transformation_processes import TransformationProcess
 from app.preprocessing.save_images_for_augmentation import save_augmented_images
 
-conf_path = pathlib.Path(__file__).parent.parent / "configuration/config_SDXL.json"
+conf_path = pathlib.Path(__file__).parent.parent / "configuration/config_training.json"
 conf = ConfigLoader(config_file=conf_path)
 
 
