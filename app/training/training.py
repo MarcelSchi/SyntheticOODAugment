@@ -15,14 +15,15 @@ def training_loop(model, train_loader, val_loader, conf):
     num_epochs = conf.config.number_epochs
     evaluator = ModelEvaluator(tolerance=5, min_improvement=0.005)
     
+    # calculate loss for each epoch in training
     for epoch in range(num_epochs):
         running_loss = train_one_epoch(model, train_loader, criterion, optimizer, device)
         validation_loss = calculate_validation_loss(model, val_loader, criterion, device)
 
         print(f"Epoch {epoch + 1}, Loss: {running_loss:.4f}; validation loss: {validation_loss}")
-
+        # check if model overfits to training data -> eventually stop training!
         if evaluator.check_for_early_stopping(validation_loss):
             print(f"Early stopping triggered at epoch {epoch + 1}")
             break
-
+    # save model as .pth file
     torch.save(model.state_dict(), 'efficientnet.pth')
