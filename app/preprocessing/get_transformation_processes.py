@@ -1,7 +1,7 @@
 from app.training.load_config import ConfigLoader
 from app.preprocessing.register_augmentation_strategies import Transformation_Registry, auto_register_transformations
 
-# function to search for all augmentation strategies that are defined in the app.augmentation directory
+# function to define an augmentation strategy
 # helps to dynamically add new strategies by registering them in a new registry
 class TransformationProcess:
     def __init__(self, config_loader: ConfigLoader, transformation_name):
