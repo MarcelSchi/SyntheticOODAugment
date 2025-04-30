@@ -14,9 +14,9 @@ git clone https://github.com/MarcelSchi/SyntheticOODAugment
 cd SyntheticOODAugment
 ```
 2. **Create a Python environment** 
-```bash 
-conda create --name _myenv_ python=3.10
-conda activate _myenv_ 
+```bash  
+python -m venv myenv
+myenv\Scripts\activate 
 ```
 3. **Install dependencies**
 ```bash
