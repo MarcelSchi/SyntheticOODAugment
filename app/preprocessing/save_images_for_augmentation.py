@@ -3,7 +3,7 @@ from tqdm import tqdm
 from torchvision.utils import save_image  # type: ignore
 from torch.utils.data import DataLoader
 
-
+# save all images that are augmented during the augmentation process. Use an augmented dataset for later training
 def save_augmented_images(dataset, augmentation_type='base', output_dir='augmented_images'):
     output_dir = os.path.join(output_dir, augmentation_type)
     os.makedirs(output_dir, exist_ok=True)
