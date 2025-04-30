@@ -12,6 +12,13 @@ conf = ConfigLoader(config_file=conf_path)
 
 
 def main(conf=conf):
+     """
+    Main pipeline which includes: data loading, model initialization, training, and evaluation.
+    Args:
+        conf (ConfigLoader): Loaded configuration object with all settings.
+    Returns:
+        result of evaluation function on the test set.
+    """
     train_dir = conf.config.train_dir
     val_dir = conf.config.val_dir
     test_dir = conf.config.test_dir
