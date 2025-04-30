@@ -6,7 +6,7 @@ from app.training.load_data import load_data
 from app.evaluation.get_evaluation_metric import EvaluationMetric
 from app.training.config_update import create_temporary_config, cleanup_temp_config
 
-conf_path = pathlib.Path(__file__).parent.parent / "configuration/config.json"
+conf_path = pathlib.Path(__file__).parent.parent / "configuration/config_training.json"
 conf = ConfigLoader(config_file=conf_path)
 
 
@@ -42,8 +42,8 @@ def evaluate_model_on_test_set(model_path, new_test_dir=None, conf=conf):
 
 
 if __name__ == "__main__":
-    test_dataset_dir = "app/data/testing_dataset/"
+    test_dataset_dir = "app/data/test_dataset/"
     evaluate_model_on_test_set(
-        "trained_models/trained_efficientnet_1.pth",
+        "efficientnet.pth",
         new_test_dir=test_dataset_dir
     )
