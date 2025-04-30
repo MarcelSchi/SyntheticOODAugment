@@ -11,6 +11,16 @@ conf = ConfigLoader(config_file=conf_path)
 
 
 def evaluate_model_on_test_set(model_path, new_test_dir=None, conf=conf):
+    """
+    Evaluate model on test set function: includes eventually editing the configuration file, loading a trained model, 
+    data loading, determining evaluation type, and evaluation on the new set and evaluation type.
+    Args:
+        model_path (str): path to the new model to be evaluated;
+        new_test_dir (str): the directory where to find the new test dataset to evaluate;
+        conf (ConfigLoader): Loaded configuration object with all settings.
+    Returns:
+        score of the new test dataset.
+    """
 
     temp_config_path = None
     if new_test_dir is not None:
