@@ -1,0 +1,18 @@
+{
+    "mean": [0.485, 0.456, 0.406],
+    "std": [0.229, 0.224, 0.225],
+    "input_shape": 224,
+    "grayscale": false,
+    "number_epochs": 30,
+    "batch_size": 64,
+    "learning_rate": 0.0001,
+    "save_images": false,
+    "augm_type": "autoaugment",
+    "augm_probability": 0.5,
+    "evaluation_type": "f1",
+    "prompt_dir": "app/preprocessing/prompts_training.json",
+    "mask_path": "app/data/mask_images/mask_1.jpg",
+    "train_dir": "app/data/training_dataset",
+    "val_dir": "app/data/validation_dataset",
+    "test_dir": "app/data/test_dataset"
+}
