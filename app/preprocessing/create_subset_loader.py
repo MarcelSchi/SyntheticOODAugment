@@ -2,7 +2,8 @@ import numpy as np
 from torch.utils.data import Subset
 from torch.utils.data import DataLoader
 
-
+# function creates a subset of training data to decrease computational costs.
+# setting subset_ratio to 1 loads the full dataset
 def create_subset_loader(train_loader, subset_ratio=0.25):
     training_dataset = train_loader.dataset
     subset_size = int(len(training_dataset) * subset_ratio)
