@@ -9,6 +9,14 @@ conf = ConfigLoader(config_file=conf_path)
 
 
 def run_augmentation_on_dataset(conf=conf):
+    """
+    run augmentation on dataset function includes: transformation loading, laod dataset, apply augmentation.
+    Args:
+        conf (ConfigLoader): Loaded configuration object with all settings.
+    Returns:
+        - 
+    All images will be saved to an individual directory.
+    """
     augmentation_type = conf.config.augm_type
     dataset_directory = conf.config.test_dir
 
