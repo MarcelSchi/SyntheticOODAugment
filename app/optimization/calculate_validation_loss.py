@@ -1,6 +1,7 @@
 import torch
 
 
+# calculate loss value on a separate validation set.
 def calculate_validation_loss(model, val_loader, criterion, device):
     model.eval()
     total_loss = 0.0
