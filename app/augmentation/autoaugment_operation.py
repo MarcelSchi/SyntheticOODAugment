@@ -10,6 +10,7 @@ class AugmentTransform(BaseImageTransform):
     def __init__(self, config: Config_Summary):
         super().__init__(config)
         self.augm_probability = config.augm_probability
+        # automatic augmentation strategies are chosen based on the learned strategies of autoaugment
         self.apply_auto_augment = AutoAugment(policy=AutoAugmentPolicy.IMAGENET)
 
     def process_image(self, image):
