@@ -12,6 +12,9 @@ class AlbumentationsTransform(BaseImageTransform):
     def __init__(self, config: Config_Summary):
         super().__init__(config)
         self.augm_probability = config.augm_probability
+        # transformation policies can be chosen manually. This set is just one possibility to add variety to data.
+        # Each probability depicts the ratio of applying the respective strategy after the augmentation probability 
+        # is chosen to enable augmentation.
         self.transform = alb.Compose([
             alb.HorizontalFlip(p=0.1),
             alb.RandomBrightnessContrast(p=0.5),
