@@ -28,8 +28,9 @@ class BaseImageTransform(TransformationStrategy):
 
         return transform_steps
 
-    # abstract method can be used for inheritage by other functions. The base transformation 
-    # does not need any additional processing
+    # abstract method can be used for inheritage by other functions. 
+    # augmentation strategies use this function to perform augmentation on images 
+    # with a respective augmentation probability 
     @abstractmethod
     def process_image(self, img: Image.Image) -> Image.Image:
         pass
