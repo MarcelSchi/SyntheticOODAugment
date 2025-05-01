@@ -9,7 +9,7 @@ from PIL import Image
 import random
 import io
 
-
+# Flux needs an API access -> url is provided. 
 @register_transformation("Flux_Fill_Pro")
 class FluxFillProTransform(BaseImageTransform):
     def __init__(self, config: Config_Summary):
@@ -23,6 +23,7 @@ class FluxFillProTransform(BaseImageTransform):
         if random.uniform(0, 1) < self.augm_probability:
             prompt = next(self.prompt_generator)
 
+            # API key has to be set as an environmental variable.
             api_key = os.getenv("REPLICATE_API_TOKEN")
             if not api_key:
                 raise ValueError("API Key not found! Set REPLICATE_API_TOKEN in your environment variables.")
@@ -41,6 +42,7 @@ class FluxFillProTransform(BaseImageTransform):
                     }
                 )
 
+            # replicate helper function to gain image in appropriate format
             if isinstance(output, replicate.helpers.FileOutput):
                 extracted_img = extract_image_from_api_online(output)
                 return extracted_img
