@@ -4,9 +4,14 @@ from app.evaluation.register_evaluation_metrices import Evaluation_Registry, aut
 
 class EvaluationMetric:
     def __init__(self, config_loader: ConfigLoader, evaluation_type):
+        """
+        Automatically registering evaluation metrics helps to add new evaluation types dynamically.
+        Depending on the model and the way to interpret data, new methods can be useful (e.g AUC, ...)
+        """
         auto_register_evaluation_metrices(module_path="app.evaluation")
 
         self.config = config_loader.get_config()
+        # check if the defined lable in the configuration file exists. If not: list all metrices that are defined.
         if evaluation_type not in Evaluation_Registry:
             available_evaluations = ", ".join(Evaluation_Registry.keys())
             raise ValueError(
