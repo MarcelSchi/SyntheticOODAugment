@@ -12,7 +12,7 @@ def register_evaluation_metric(name):
 
     return decorator
 
-# register all metrices that are defined in app/evaluation directory. New metrices need @register(_new_metric_) at the beginning. 
+# register all metrices that are defined in app/evaluation directory. New metrices need @register_evaluation_metric(_new_metric_) at the beginning. 
 def auto_register_evaluation_metrices(module_path="app.evaluation"):
     base_path = Path(__file__).resolve().parent.parent
     module_dir = os.path.join(base_path, module_path.split(".")[-1])
