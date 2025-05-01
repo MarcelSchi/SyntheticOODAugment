@@ -10,6 +10,10 @@ from app.preprocessing.choose_prompts import load_prompts_in_order
 
 @register_transformation("instructpix2pix")
 class InstructPix2PixTransform(BaseImageTransform):
+    """
+    Access is gained via huggingface. Prompts are loaded in an order so each prompt is applied equally.
+    Images are processed via a defined augmentation probability, applying no mask but the next prompt to the respective images.
+    """
     def __init__(self, config: Config_Summary):
         super().__init__(config)
         self.augm_probability = config.augm_probability
