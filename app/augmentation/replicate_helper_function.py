@@ -2,7 +2,7 @@ import requests
 import os
 from PIL import Image
 
-
+# necessary function for extracting the image via API in an appropriate format
 def extract_image_from_api_online(output):
     output_url = output.url
 
