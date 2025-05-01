@@ -9,7 +9,6 @@ from PIL import Image
 import random
 import io
 
-# Flux needs an API access -> url is provided. 
 @register_transformation("Flux_Fill_Pro")
 class FluxFillProTransform(BaseImageTransform):
     def __init__(self, config: Config_Summary):
@@ -17,6 +16,7 @@ class FluxFillProTransform(BaseImageTransform):
         self.augm_probability = config.augm_probability
         self.mask_path = config.mask_path
         self.prompt_generator = load_prompts_in_order(config)
+        # Flux needs an API access -> url is provided. 
         self.api_url = "black-forest-labs/flux-fill-pro"
 
     def process_image(self, img: Image.Image) -> Image.Image:
