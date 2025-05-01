@@ -8,6 +8,7 @@ class AccuracyEvaluation:
         self.config = config
 
     def evaluate_model(self, model, val_loader):
+        # no weight adapation
         model.eval()
         device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -23,6 +24,7 @@ class AccuracyEvaluation:
                 total_processed += labels.size(0)
                 correct_predicted += (predicted == labels).sum().item()
 
+        # accuracy score: dividing all correctly predicted items by the total number of images predicted  
         accuracy = 100 * correct_predicted / total_processed
         print(f'Test Accuracy: {accuracy:.2f}%')
 
