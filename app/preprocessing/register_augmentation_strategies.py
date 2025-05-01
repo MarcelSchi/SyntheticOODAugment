@@ -15,6 +15,8 @@ def register_transformation(name):
     return decorator
 
 
+# goes through all python scripts to register all available augmentation strategies.
+# New strategies can be added dynamically by adding a registration with a keyword -> choose augmentation strategy via configuration file
 def auto_register_transformations(module_path="app.augmentation"):
     base_path = Path(__file__).resolve().parent.parent
     module_dir = os.path.join(base_path, module_path.split(".")[-1])
