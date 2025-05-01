@@ -4,6 +4,7 @@ from itertools import cycle
 from app.training.config_summary import Config_Summary
 
 
+# Take a path to prompt file and load these prompts to apply augmentation with equally distributred prompts
 def load_prompts_in_order(config=Config_Summary):
     prompt_path = Path(config.prompt_dir)
 
