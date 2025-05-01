@@ -10,6 +10,11 @@ from diffusers import AutoPipelineForInpainting
 
 @register_transformation("Kandinsky")
 class KandinskyTransform(BaseImageTransform):
+    """
+    Access is gained via huggingface. Prompts are loaded in an order so each prompt is applied equally.
+    Mask path is extracted via the configuration file in order to depict the region to be masked.
+    Images are processed via a defined augmentation probability, applying mask and the next prompt to the respective images.
+    """
     def __init__(self, config: Config_Summary):
         super().__init__(config)
         self.augm_probability = config.augm_probability
