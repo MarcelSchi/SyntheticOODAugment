@@ -4,6 +4,8 @@ import torchvision.models as models  # type: ignore
 
 class EfficientNet(nn.Module):
 
+    # pre-trained EfficientNetB0 is used for evaluation
+    # define model setup with individual settings like Dropout and a linear layer depending on the number of classes to predict
     def __init__(self, num_classes: int, grayscale=False):
         super(EfficientNet, self).__init__()
         self.weights = models.EfficientNet_B0_Weights.IMAGENET1K_V1
